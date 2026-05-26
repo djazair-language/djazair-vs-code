@@ -119,7 +119,7 @@
       "patterns": [
         {
           "name": "keyword.control.flow.djazair",
-          "match": "\\b(return|break|continue)\\b"
+          "match": "\\b(return|break|continue|await)\\b"
         },
         {
           "name": "keyword.control.conditional.djazair",
@@ -147,7 +147,7 @@
         },
         {
           "name": "keyword.declaration.djazair",
-          "match": "\\b(fn|class)\\b"
+          "match": "\\b(fn|class|async)\\b"
         },
         {
           "name": "keyword.control.end.djazair",
@@ -158,7 +158,7 @@
           "match": "\\b(super|self)\\b"
         },
         {
-          "name": "keyword.operator.logical.djazair",
+          "name": "keyword.operator.word.djazair",
           "match": "\\b(and|or|not)\\b"
         },
         {
@@ -166,7 +166,7 @@
           "match": "\\b(True|False|true|false|Null|none|null|nil)\\b"
         },
         {
-          "name": "keyword.operator.logical.djazair",
+          "name": "keyword.operator.word.djazair",
           "match": "\\b(is|in)\\b"
         }
       ]
@@ -176,7 +176,7 @@
       "patterns": [
         {
           "name": "support.function.builtin.djazair",
-          "match": "\\b(print|println|input|len|range|type|str|int|float|bool|list|dict|set|tuple|map|filter|reduce|zip|enumerate|sorted|reversed|sum|min|max|abs|round|pow|sqrt|open|read|write|close|exit|help|isString|isNumber|isArray|isMap|isBool|isNull|isFunction|isClass|isInstance|join|clock)\\b"
+          "match": "\\b(print|println|input|type|str|num|bool|isNull|isString|isNumber|isBool|isArray|isMap|isFunction|isClass|isInstance|chr|ord|exit|int|float|isinstance|__native|hasNative|abs|enumerate|range|round|zip|capitalize|center|charCodeAt|contains|count|endswith|find|isalpha|isalnum|isdigit|islower|isspace|isupper|length|ljust|lower|lstrip|repeat|replace|reverse|rjust|rstrip|split|startswith|strip|substring|upper|push|pop|insert|remove|clear|index|has|get|set|keys|values|is_even|is_odd|bytesToHex|hexToBytes|map|filter|reduce|findIndex|every|some)\\b"
         }
       ]
     },
@@ -302,12 +302,12 @@
     "importPaths": {
       "patterns": [
         {
-          "name": "string.quoted.import-path.djazair",
-          "match": "(?<=import\\s+)\"[^\"]+\""
+          "name": "entity.name.namespace.djazair",
+          "match": "(?<=import\\s+)[a-zA-Z0-9_\\/\\.]+"
         },
         {
-          "name": "string.quoted.import-path.djazair",
-          "match": "(?<=from\\s+)\"[^\"]+\""
+          "name": "entity.name.namespace.djazair",
+          "match": "(?<=from\\s+)[a-zA-Z0-9_\\/\\.]+"
         }
       ]
     }

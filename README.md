@@ -6,69 +6,100 @@
 [![Organization](https://img.shields.io/badge/organization-djazair--language-blue.svg)](https://github.com/djazair-language)
 [![VS Code](https://img.shields.io/badge/editor-VS%20Code-purple.svg)](https://code.visualstudio.com/)
 
-**Official extension providing rich language support for the Djazair programming language.**
+**The official Visual Studio Code extension providing rich language support, syntax highlighting, and code snippets for the Djazair Programming Language.**
 
-[Features](#-features) · [Compatibility](#-compatibility) · [Installation](#-installation) · [Contributing](#-contributing)
+[Features](#-key-features) · [Compatibility](#-compatibility) · [Installation](#-installation) · [Developer Guide](#-developer-guide--packaging) · [Contributing](#-contributing)
 
 </div>
 
 ---
 
-This extension provides syntax highlighting, language configuration, and snippets for **Djazair (`.dz`)** source files, enabling a smooth and productive development experience in modern editors and AI development environments.
+This extension provides comprehensive support for **Djazair (`.dz`)** source files, enabling syntax highlighting, structural folding, auto-closing brackets, and intelligent code snippets in VS Code, Antigravity, and compatible IDEs.
 
 ---
 
-## ✨ Features
+## 🌟 Key Features
 
-- **Syntax Highlighting**: Full tokenization for Djazair syntax, including keywords (`let`, `var`, `fn`, `class`, `is`, `try`, `catch`, `finally`, `end`), data types, strings, interpolation, and comments.
-- **Language Configuration**:
-  - Auto-closing brackets, quotes, and parentheses.
-  - Bracket surrounding logic.
-  - Comment toggling support (single-line `#` and multi-line `#! ... !#`).
-- **Code Snippets**: Built-in templates for quick coding, including:
-  - Variable declarations and loops.
-  - Function definitions (`fn`).
-  - Class structures with constructors (`init`).
-  - Error handling (`try/catch`).
+### 1. Advanced Syntax Highlighting
+Full TextMate grammar tokenization maps precisely to the Djazair grammar:
+* **Control Flows & Keywords**: `let`, `var`, `fn`, `class`, `is`, `if`, `elif`, `else`, `match`, `case`, `default`, `try`, `catch`, `finally`, `end`, etc.
+* **Primitive Types**: Numbers, Booleans (`True`, `False`), and `Null`.
+* **String Interpolation**: Highlights dynamic expressions inside double-quoted strings (e.g. `"Hello ${name}"`).
+* **Comments**: Special colorization for single-line (`#`) and multi-line block comments (`#! ... !#`).
+
+### 2. Language Configuration & Editing Aids
+* **Auto-Closing Pairs**: Automatically closes `(`, `[`, `{`, `"`, and `'`.
+* **Surrounding Pairs**: Allows wrapping selected text when typing parenthetical or quote characters.
+* **Indentation Rules**: Automatically handles indent levels when opening functions, classes, or block structures.
+* **Toggle Comments**: Out-of-the-box support for default commenting shortcuts (`Ctrl + /` on Windows/Linux, `Cmd + /` on macOS).
+
+### 3. Productivity Snippets
+Includes rich code snippets for rapid development:
+* `fn`: Standard function structure.
+* `class`: Class outline with an initialization constructor (`init`).
+* `try`: Full Exception handling try-catch block.
+* `print`: Print statement wrapper.
+* `let` / `var`: Variable declaration templates.
 
 ---
 
 ## 💻 Compatibility
 
-This extension is built on standard VS Code API specifications and is fully compatible with:
-* **VS Code** (Visual Studio Code)
-* **Antigravity IDE**
-* **Cursor**
-* **VSCodium**
-* Other compatible desktop and web-based VS Code-like editors.
+Built upon standard VS Code API definitions, this extension runs seamlessly across a variety of editors and AI coding environments:
+* **VS Code** (Desktop & Web)
+* **Antigravity IDE** (Official agent workspace)
+* **Cursor** & **VSCodium**
+* **Gitpod** & **GitHub Codespaces**
 
 ---
 
 ## ⚡ Installation
 
-### Manual Installation
-Since the extension is currently in development/private release, you can install it manually by placing it in your extensions directory:
+### Option 1: Manual Installation (Development)
+To run and test the extension directly from the source code:
 
-1. Clone or download this repository:
-   ```bash
-   git clone https://github.com/djazair-language/djazair-vs-code.git
-   ```
-2. Move the cloned directory into your editor's extensions folder:
-   - **Windows**: `%USERPROFILE%\.vscode\extensions\`
-   - **Linux / macOS**: `~/.vscode/extensions/`
-3. Restart your editor.
+1. Clone this repository into your editor's extensions folder:
+   - **Windows**: 
+     ```powershell
+     git clone https://github.com/djazair-language/djazair-vs-code.git "$HOME\.vscode\extensions\djazair-vs-code"
+     ```
+   - **Linux / macOS**:
+     ```bash
+     git clone https://github.com/djazair-language/djazair-vs-code.git ~/.vscode/extensions/djazair-vs-code
+     ```
+2. Restart your editor to activate the extension.
+
+### Option 2: Pre-packaged VSIX Installation
+If you have a compiled `.vsix` file:
+1. Open VS Code.
+2. Open the Extensions View (`Ctrl+Shift+X` or `Cmd+Shift+X`).
+3. Click the **`...`** (More Actions) menu in the top-right corner of the Extensions panel.
+4. Select **Install from VSIX...** and select the `.vsix` file.
+
+---
+
+## 🛠️ Developer Guide & Packaging
+
+If you are a maintainer and want to package the extension into a shareable `.vsix` file, follow these steps:
+
+### Prerequisites
+Make sure you have Node.js installed, then install the VS Code Extension Manager globally:
+```bash
+npm install -g @vscode/vsce
+```
+
+### Packaging the Extension
+Navigate to the root directory of this extension and run:
+```bash
+vsce package
+```
+This command compiles and generates a `djazair-1.0.3.vsix` file (matching the version in `package.json`) in the root directory, which can be shared and installed directly.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions, bug reports, and syntax improvements are welcome!
-
-1. **Fork** the repository.
-2. Create your feature branch (`git checkout -b feature/improved-highlighting`).
-3. Commit your changes.
-4. Push to the branch.
-5. Open a **Pull Request**.
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/djazair-language/djazair-vs-code/issues) to report bugs or request new snippets.
 
 ---
 

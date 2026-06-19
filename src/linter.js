@@ -16,32 +16,38 @@ function disposeLinter() {
 }
 
 function getCompilerPath() {
-    let compilerPath = vscode.workspace.getConfiguration('djazair').get('compilerPath') || 'djazair';
+    // 1. Check user-configured custom path first
+    const configured = vscode.workspace.getConfiguration('djazair').get('compilerPath');
+    if (configured && configured !== 'djazair') {
+        return configured;
+    }
 
-    if (compilerPath === 'djazair') {
-        try {
-            const result = cp.spawnSync('djazair', ['--version'], { timeout: 5000 });
-            if (!result.error) {
-                return 'djazair';
-            }
-        } catch (e) {
-        }
+    // 2. Check if 'djazair' is available globally in PATH
+    try {
+        const result = cp.spawnSync('djazair', ['--version'], { timeout: 3000 });
+        if (!result.error) return 'djazair';
+    } catch (e) { /* not in PATH */ }
 
-        const workspaceFolders = vscode.workspace.workspaceFolders;
-        if (workspaceFolders && workspaceFolders.length > 0) {
-            const rootPath   = workspaceFolders[0].uri.fsPath;
-            const candidates = [
-                path.join(rootPath, 'build', 'bin', 'djazair.exe'),
-                path.join(rootPath, 'build', 'bin', 'djazair'),
-                path.join(rootPath, 'node_modules', '.bin', 'djazair.cmd'),
-                path.join(rootPath, 'node_modules', '.bin', 'djazair')
-            ];
-            for (const p of candidates) {
-                if (fs.existsSync(p)) { compilerPath = p; break; }
-            }
+    // 3. Fallback: scan common local build locations
+    const workspaceFolders = vscode.workspace.workspaceFolders;
+    if (workspaceFolders && workspaceFolders.length > 0) {
+        const rootPath   = workspaceFolders[0].uri.fsPath;
+        const parentPath = path.dirname(rootPath);
+        const candidates = [
+            // Sibling repo layout (dev setup)
+            path.join(parentPath, 'djazair-language', 'build', 'bin', 'djazair.exe'),
+            path.join(parentPath, 'djazair-language', 'build', 'bin', 'djazair'),
+            // Inside workspace
+            path.join(rootPath, 'build', 'bin', 'djazair.exe'),
+            path.join(rootPath, 'build', 'bin', 'djazair'),
+        ];
+        for (const p of candidates) {
+            if (fs.existsSync(p)) return p;
         }
     }
-    return compilerPath;
+
+    // 4. Last resort: return 'djazair' and let the OS error handle it
+    return 'djazair';
 }
 
 function runLinter(document) {

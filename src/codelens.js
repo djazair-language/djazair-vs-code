@@ -32,8 +32,11 @@ function runDjazairFile(uri) {
     }
 
     function execute(fileUri) {
-        if (!terminal || terminal.exitStatus !== undefined) {
-            terminal = vscode.window.createTerminal("Djazair");
+        // Reuse existing terminal if still alive, otherwise create a new one
+        const isTerminalAlive = terminal &&
+            vscode.window.terminals.find(t => t === terminal) !== undefined;
+        if (!isTerminalAlive) {
+            terminal = vscode.window.createTerminal('Djazair');
         }
         terminal.show(true);
         const compilerPath = getCompilerPath();

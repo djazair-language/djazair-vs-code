@@ -5,6 +5,7 @@ const { DjazairHoverProvider } = require('./src/hover');
 const { DjazairCompletionItemProvider } = require('./src/completion');
 const { DjazairSignatureHelpProvider } = require('./src/signature');
 const { DjazairCodeLensProvider, runDjazairFile } = require('./src/codelens');
+const { DjazairDocumentSymbolProvider } = require('./src/symbols');
 
 let diagnosticCollection;
 
@@ -56,7 +57,15 @@ function activate(context) {
         )
     );
 
-    // 6. CodeLens Provider & Run Command
+    // 6. Document Symbols (Outline View)
+    context.subscriptions.push(
+        vscode.languages.registerDocumentSymbolProvider(
+            { language: 'djazair', scheme: 'file' },
+            new DjazairDocumentSymbolProvider()
+        )
+    );
+
+    // 7. CodeLens Provider & Run Command
     context.subscriptions.push(
         vscode.languages.registerCodeLensProvider({ language: 'djazair', scheme: 'file' }, new DjazairCodeLensProvider())
     );

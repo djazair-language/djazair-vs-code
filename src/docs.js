@@ -129,10 +129,16 @@ const DJAZAIR_DOCS = {
     'super': { sig: 'Keyword', desc: 'Refers to the parent class.' }
 };
 
+// Hybrid modules (C + Djazair): registered in std_registry.c
+// Pure Djazair modules: loaded dynamically at runtime
+// Both are valid and usable via `use <module>`
 const DJAZAIR_MODULES = [
-    'assert', 'bytes', 'collections', 'crypto', 'datetime', 'dir', 'env',
-    'file', 'http', 'json', 'lang', 'math', 'net', 'os', 'path', 'process',
-    'random', 'regex', 'thread', 'uuid'
+    // Hybrid (C-native)
+    'crypto', 'datetime', 'dir', 'env', 'file',
+    'json', 'lang', 'math', 'net', 'os',
+    'process', 'random', 'regex', 'thread',
+    // Pure Djazair (dynamically loaded)
+    'assert', 'bytes', 'collections', 'http', 'path', 'uuid'
 ];
 
 const GLOBAL_FUNCTIONS = [

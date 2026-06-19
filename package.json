@@ -2,7 +2,7 @@
   "name": "djazair",
   "displayName": "Djazair Language",
   "description": "Syntax highlighting, formatting, and support for the Djazair programming language.",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "publisher": "djazair-language",
   "engines": {
     "vscode": "^1.90.0"

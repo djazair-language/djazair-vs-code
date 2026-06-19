@@ -32,7 +32,11 @@
         "id": "djazair",
         "aliases": ["Djazair", "djazair"],
         "extensions": [".dz"],
-        "configuration": "./language-configuration.json"
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./images/dz-file-icon.png",
+          "dark": "./images/dz-file-icon.png"
+        }
       }
     ],
 
@@ -48,6 +52,13 @@
       {
         "language": "djazair",
         "path": "./snippets/djazair.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "djazair.runFile",
+        "title": "Run Djazair File",
+        "icon": "$(play)"
       }
     ],
     "configuration": {

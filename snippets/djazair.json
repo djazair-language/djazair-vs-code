@@ -6,7 +6,7 @@
       "\t${3:// body}",
       "end"
     ],
-    "description": "إنشاء دالة جديدة"
+    "description": "Create a new function"
   },
   
   "Arrow Function": {
@@ -14,7 +14,7 @@
     "body": [
       "fn(${1:args}) => ${2:expression}"
     ],
-    "description": "دالة سهمية"
+    "description": "Arrow function"
   },
 
   "Class": {
@@ -30,7 +30,7 @@
       "\tend",
       "end"
     ],
-    "description": "إنشاء صنف جديد"
+    "description": "Create a new class"
   },
 
   "If Statement": {
@@ -40,7 +40,7 @@
       "\t${2:// code}",
       "end"
     ],
-    "description": "جملة if بسيطة"
+    "description": "Simple if statement"
   },
 
   "If Else": {
@@ -66,7 +66,7 @@
       "\t${5:// code}",
       "end"
     ],
-    "description": "if elif else كامل"
+    "description": "Full if elif else chain"
   },
 
   "Match Case": {
@@ -81,7 +81,7 @@
       "\t\t${6:// default code}",
       "end"
     ],
-    "description": "جملة match case"
+    "description": "Match case statement"
   },
 
   "For Loop": {
@@ -91,7 +91,7 @@
       "\t${3:// body}",
       "end"
     ],
-    "description": "حلقة for"
+    "description": "For loop"
   },
 
   "While Loop": {
@@ -101,7 +101,7 @@
       "\t${2:// body}",
       "end"
     ],
-    "description": "حلقة while"
+    "description": "While loop"
   },
 
   "Do-While Loop": {
@@ -111,7 +111,7 @@
       "\t${1:// body}",
       "while ${2:expression}"
     ],
-    "description": "حلقة do-while (تنفذ مرة على الأقل)"
+    "description": "Do-while loop (executes at least once)"
   },
 
   "Try Catch Finally": {
@@ -125,7 +125,7 @@
       "\t${4:// cleanup}",
       "end"
     ],
-    "description": "try catch finally"
+    "description": "Try catch finally"
   },
 
   "Variable (let)": {
@@ -133,7 +133,7 @@
     "body": [
       "let ${1:name} = ${2:value}"
     ],
-    "description": "تعريف متغير ثابت في النطاق"
+    "description": "Define a block-scoped variable"
   },
 
   "Import": {
@@ -141,7 +141,7 @@
     "body": [
       "use ${1:library}"
     ],
-    "description": "استيراد مكتبة"
+    "description": "Import a library"
   },
 
   "Import As": {
@@ -149,7 +149,7 @@
     "body": [
       "use ${1:library} as ${2:alias}"
     ],
-    "description": "استيراد مكتبة مع اسم مستعار"
+    "description": "Import a library with an alias"
   },
 
   "Import As Star": {
@@ -157,7 +157,7 @@
     "body": [
       "use ${1:library} as *"
     ],
-    "description": "استيراد كل دوال المكتبة"
+    "description": "Import all symbols from a library"
   },
 
   "Import File": {
@@ -165,34 +165,7 @@
     "body": [
       "import \"${1:file.dz}\""
     ],
-    "description": "استيراد ملف محلي"
-  },
-
-  "JSON Serialize": {
-    "prefix": "jsons",
-    "body": [
-      "use json",
-      "print(json.serialize(${1:data}))"
-    ],
-    "description": "تحويل البيانات إلى JSON"
-  },
-
-  "Random Int": {
-    "prefix": "randint",
-    "body": [
-      "use random",
-      "let ${1:num} = random.int(${2:1}, ${3:100})"
-    ],
-    "description": "توليد رقم عشوائي صحيح"
-  },
-
-  "Lang Version": {
-    "prefix": "langv",
-    "body": [
-      "use lang",
-      "print(\"Djazair Version: \" + lang.version())"
-    ],
-    "description": "عرض إصدار اللغة"
+    "description": "Import a local file"
   },
 
   "Print": {
@@ -200,542 +173,6 @@
     "body": [
       "print(${1:value})"
     ],
-    "description": "طباعة قيمة"
-  },
-
-  "Main Function": {
-    "prefix": "main",
-    "body": [
-      "fn main()",
-      "\t${1:// main code}",
-      "end"
-    ],
-    "description": "الدالة الرئيسية"
-  },
-
-  "Assert Equal": {
-    "prefix": "asserte",
-    "body": [
-      "use assert",
-      "assert.equal(${1:actual}, ${2:expected}, \"${3:message}\")"
-    ],
-    "description": "التحقق من تساوي قيمتين"
-  },
-
-  "Assert IsTrue": {
-    "prefix": "assertt",
-    "body": [
-      "use assert",
-      "assert.isTrue(${1:condition}, \"${2:message}\")"
-    ],
-    "description": "التحقق من صحة شرط"
-  },
-
-  "Crypto SHA256": {
-    "prefix": "sha256",
-    "body": [
-      "use crypto",
-      "let ${1:hash} = crypto.sha256(\"${2:text}\")",
-      "print(${1:hash})"
-    ],
-    "description": "تشفير نص بـ SHA-256"
-  },
-
-  "Crypto Base64": {
-    "prefix": "b64e",
-    "body": [
-      "use crypto",
-      "let ${1:encoded} = crypto.base64_encode(\"${2:text}\")"
-    ],
-    "description": "تشفير Base64"
-  },
-
-  "Date Now": {
-    "prefix": "datenow",
-    "body": [
-      "use datetime",
-      "let ${1:now} = datetime.now()",
-      "print(${1:now}.toString())"
-    ],
-    "description": "التاريخ والوقت الحالي"
-  },
-
-  "Date Format": {
-    "prefix": "datefmt",
-    "body": [
-      "use datetime",
-      "let ${1:d} = datetime.now()",
-      "print(${1:d}.format(\"${2:%Y-%m-%d %H:%M:%S}\"))"
-    ],
-    "description": "تنسيق التاريخ"
-  },
-
-  "Date From Parts": {
-    "prefix": "dateparts",
-    "body": [
-      "use datetime",
-      "let ${1:d} = datetime.fromParts(${2:2024}, ${3:1}, ${4:15})",
-      "print(${1:d}.format(\"${5:%Y-%m-%d}\"))"
-    ],
-    "description": "إنشاء تاريخ من القيم"
-  },
-
-  "IO Read Text": {
-    "prefix": "ioread",
-    "body": [
-      "use file",
-      "let ${1:content} = file.read(\"${2:file.txt}\")",
-      "print(${1:content})"
-    ],
-    "description": "قراءة ملف نصي كامل"
-  },
-
-  "IO Write Text": {
-    "prefix": "iowrite",
-    "body": [
-      "use file",
-      "file.write(\"${1:file.txt}\", ${2:content})"
-    ],
-    "description": "كتابة ملف نصي"
-  },
-
-  "IO Exists": {
-    "prefix": "ioexists",
-    "body": [
-      "use file",
-      "if file.exists(\"${1:path}\")",
-      "\tprint(\"موجود\")",
-      "end"
-    ],
-    "description": "التحقق من وجود ملف"
-  },
-
-  "Dir List": {
-    "prefix": "dirlist",
-    "body": [
-      "use dir",
-      "let ${1:entries} = dir.list(\"${2:.}\")",
-      "for ${3:entry} in ${1:entries}",
-      "\tprint(${3:entry})",
-      "end"
-    ],
-    "description": "سرد محتويات مجلد"
-  },
-
-  "Dir Traverse": {
-    "prefix": "dirtraverse",
-    "body": [
-      "use dir",
-      "let ${1:paths} = dir.traverse(\"${2:.}\")",
-      "for ${3:path} in ${1:paths}",
-      "\tprint(${3:path})",
-      "end"
-    ],
-    "description": "اجتياز مجلد recursively"
-  },
-
-  "IO File Open": {
-    "prefix": "iofile",
-    "body": [
-      "use file",
-      "let ${1:f} = file.open(\"${2:file.txt}\", \"${3:r}\")",
-      "let ${4:data} = ${1:f}.read()",
-      "${1:f}.close()"
-    ],
-    "description": "فتح ملف وقراءته"
-  },
-
-  "IO Format Size": {
-    "prefix": "iosize",
-    "body": [
-      "use file",
-      "print(file.size(${1:1024}))"
-    ],
-    "description": "تنسيق حجم الملف"
-  },
-
-  "Math Constants": {
-    "prefix": "mathpi",
-    "body": [
-      "use math",
-      "print(math.PI)",
-      "print(math.E)",
-      "print(math.TAU)"
-    ],
-    "description": "ثوابت الرياضيات"
-  },
-
-  "Math Sqrt": {
-    "prefix": "msqrt",
-    "body": [
-      "use math",
-      "let ${1:result} = math.sqrt(${2:16})"
-    ],
-    "description": "الجذر التربيعي"
-  },
-
-  "Math Min Max": {
-    "prefix": "mmath",
-    "body": [
-      "use math",
-      "let ${1:m} = math.min(${2:a}, ${3:b})",
-      "let ${4:M} = math.max(${2:a}, ${3:b})"
-    ],
-    "description": "الحد الأدنى والأقصى"
-  },
-
-  "Math Clamp": {
-    "prefix": "mclamp",
-    "body": [
-      "use math",
-      "let ${1:val} = math.clamp(${2:x}, ${3:0}, ${4:100})"
-    ],
-    "description": "تقييد قيمة ضمن نطاق"
-  },
-
-  "Math Sum Mean": {
-    "prefix": "msum",
-    "body": [
-      "use math",
-      "let ${1:arr} = [${2:1}, ${3:2}, ${4:3}]",
-      "let ${5:s} = math.sum(${1:arr})",
-      "let ${6:m} = math.mean(${1:arr})"
-    ],
-    "description": "مجموع ومتوسط مصفوفة"
-  },
-
-  "Net HTTP Get": {
-    "prefix": "httpget",
-    "body": [
-      "use net",
-      "let ${1:resp} = net.get(\"${2:https://example.com}\")",
-      "print(${1:resp}.body)"
-    ],
-    "description": "طلب HTTP GET"
-  },
-
-  "Net HTTP Post": {
-    "prefix": "httppost",
-    "body": [
-      "use net",
-      "let ${1:resp} = net.post(\"${2:https://example.com/api}\", \"${3:data}\")",
-      "print(${1:resp}.status)"
-    ],
-    "description": "طلب HTTP POST"
-  },
-
-  "Net JSON Get": {
-    "prefix": "httpjson",
-    "body": [
-      "use net",
-      "use json",
-      "let ${1:resp} = net.get(\"${2:https://api.example.com}\")",
-      "let ${3:data} = json.parse(${1:resp}.body)"
-    ],
-    "description": "طلب HTTP مع تحليل JSON"
-  },
-
-  "Net TCP Server": {
-    "prefix": "tcpserv",
-    "body": [
-      "use net",
-      "let ${1:server} = net.createServer(${2:8080})",
-      "${1:server}.start(fn(${3:client})",
-      "\t${3:client}.send(\"${4:Hello}\")",
-      "\t${3:client}.close()",
-      "end)"
-    ],
-    "description": "خادم TCP"
-  },
-
-  "Net TCP Client": {
-    "prefix": "tcpcli",
-    "body": [
-      "use net",
-      "let ${1:client} = net.connect(\"${2:localhost}\", ${3:8080})",
-      "${1:client}.send(\"${4:data}\")",
-      "let ${5:resp} = ${1:client}.recv(${6:1024})",
-      "${1:client}.close()"
-    ],
-    "description": "عميل TCP"
-  },
-
-  "Net Parse URL": {
-    "prefix": "urlparse",
-    "body": [
-      "use net",
-      "let ${1:url} = net.parseURL(\"${2:https://example.com/path?q=1}\")",
-      "print(${1:url}.hostname)"
-    ],
-    "description": "تحليل رابط"
-  },
-
-  "OS Get Env": {
-    "prefix": "getenv",
-    "body": [
-      "use os",
-      "let ${1:val} = os.getenv(\"${2:PATH}\")",
-      "print(${1:val})"
-    ],
-    "description": "الحصول على متغير بيئة"
-  },
-
-  "OS Set Env": {
-    "prefix": "setenv",
-    "body": [
-      "use os",
-      "os.setenv(\"${1:MY_VAR}\", \"${2:value}\")"
-    ],
-    "description": "تعيين متغير بيئة"
-  },
-
-  "OS Run Command": {
-    "prefix": "syscmd",
-    "body": [
-      "use os",
-      "os.system(\"${1:echo Hello}\")"
-    ],
-    "description": "تنفيذ أمر نظام"
-  },
-
-  "OS Platform": {
-    "prefix": "plat",
-    "body": [
-      "use os",
-      "print(os.platform())"
-    ],
-    "description": "معرفة نظام التشغيل"
-  },
-
-  "OS CPU Count": {
-    "prefix": "cpucount",
-    "body": [
-      "use os",
-      "print(\"CPU cores: \" + str(os.cpu_count()))"
-    ],
-    "description": "عدد أنوية المعالج"
-  },
-
-  "OS Args": {
-    "prefix": "args",
-    "body": [
-      "use os",
-      "for ${1:i} in os.args()",
-      "\tprint(${1:i})",
-      "end"
-    ],
-    "description": "وسائط سطر الأوامر"
-  },
-
-  "Path Join": {
-    "prefix": "pjoin",
-    "body": [
-      "use path",
-      "let ${1:full} = path.join(\"${2:a}\", \"${3:b}\")"
-    ],
-    "description": "دمج مسارين"
-  },
-
-  "Path Dirname Basename": {
-    "prefix": "pdb",
-    "body": [
-      "use path",
-      "let ${1:dir} = path.dirname(\"${2:/a/b/c.txt}\")",
-      "let ${3:base} = path.basename(\"${2:/a/b/c.txt}\")"
-    ],
-    "description": "اسم المجلد والملف من مسار"
-  },
-
-  "Path Extname": {
-    "prefix": "pext",
-    "body": [
-      "use path",
-      "let ${1:ext} = path.extname(\"${2:file.txt}\")"
-    ],
-    "description": "امتداد الملف"
-  },
-
-  "Path Resolve": {
-    "prefix": "presolve",
-    "body": [
-      "use path",
-      "let ${1:abs} = path.resolve(\"${2:relative/path}\")"
-    ],
-    "description": "تحويل مسار نسبي إلى مطلق"
-  },
-
-  "Regex Test": {
-    "prefix": "regex",
-    "body": [
-      "use regex",
-      "let ${1:re} = regex.compile(\"${2:pattern}\")",
-      "if ${1:re}.test(\"${3:text}\")",
-      "\tprint(\"يوجد تطابق\")",
-      "end"
-    ],
-    "description": "اختبار نمط في نص"
-  },
-
-  "Regex Find": {
-    "prefix": "refind",
-    "body": [
-      "use regex",
-      "let ${1:m} = regex.find(\"${2:pattern}\", \"${3:text}\")",
-      "if ${1:m} != Null",
-      "\tprint(${1:m}.group(${4:0}))",
-      "end"
-    ],
-    "description": "البحث عن نمط في نص"
-  },
-
-  "Regex Replace": {
-    "prefix": "rereplace",
-    "body": [
-      "use regex",
-      "let ${1:result} = regex.replace(\"${2:pattern}\", \"${3:replacement}\", \"${4:text}\")"
-    ],
-    "description": "استبدال النمط في نص"
-  },
-
-  "Regex Split": {
-    "prefix": "resplit",
-    "body": [
-      "use regex",
-      "let ${1:parts} = regex.split(\"${2:pattern}\", \"${3:text}\")"
-    ],
-    "description": "تقسيم نص حسب نمط"
-  },
-
-  "Regex Exec": {
-    "prefix": "reexec",
-    "body": [
-      "use regex",
-      "let ${1:re} = regex.compileWithFlags(\"${2:pattern}\", \"${3:g}\")",
-      "let ${4:m} = ${1:re}.exec(\"${5:text}\")",
-      "if ${4:m} != Null",
-      "\tprint(${4:m}.group(${6:0}))",
-      "end"
-    ],
-    "description": "تنفيذ بحث RegExp مع خيارات"
-  },
-
-  "Thread Spawn": {
-    "prefix": "thspawn",
-    "body": [
-      "use thread",
-      "let ${1:t} = thread.spawn(\"${2:worker.dz}\")",
-      "${1:t}.send(\"${3:message}\")",
-      "let ${4:reply} = ${1:t}.receive()",
-      "${1:t}.join()"
-    ],
-    "description": "إنشاء خيط عامل"
-  },
-
-  "Thread Spawn Inline": {
-    "prefix": "thinline",
-    "body": [
-      "use thread",
-      "let ${1:code} = `",
-      "\treceive()",
-      "\tsend(\"Hello from worker\")",
-      "`",
-      "let ${2:t} = thread.spawnInline(${1:code})",
-      "let ${3:msg} = ${2:t}.receive()",
-      "print(${3:msg})",
-      "${2:t}.join()"
-    ],
-    "description": "إنشاء خيط بكود مضمّن"
-  },
-
-  "Thread Pool": {
-    "prefix": "thpool",
-    "body": [
-      "use thread",
-      "let ${1:pool} = thread.pool(\"${2:worker.dz}\", ${3:4})",
-      "println(\"Pool size: \" + str(${1:pool}.size()))"
-    ],
-    "description": "تجمع خيوط"
-  },
-
-  "Thread Worker": {
-    "prefix": "thworker",
-    "body": [
-      "# worker.dz",
-      "let ${1:msg} = receive()",
-      "send(\"Received: \" + ${1:msg})"
-    ],
-    "description": "قالب ملف العامل"
-  },
-
-  "Time Now": {
-    "prefix": "timenow",
-    "body": [
-      "use datetime",
-      "print(time.now())"
-    ],
-    "description": "الطابع الزمني الحالي"
-  },
-
-  "Time Sleep": {
-    "prefix": "sleep",
-    "body": [
-      "use datetime",
-      "time.sleep(${1:1})",
-      "print(\"تم الانتظار\")"
-    ],
-    "description": "تأخير التنفيذ"
-  },
-
-  "Time Measure": {
-    "prefix": "timebench",
-    "body": [
-      "use datetime",
-      "let ${1:elapsed} = datedatetime.measureTime(fn()",
-      "\t${2:// code to benchmark}",
-      "end)",
-      "print(\"استغرق: \" + str(${1:elapsed}) + \" ثانية\")"
-    ],
-    "description": "قياس وقت التنفيذ"
-  },
-
-  "UUID V4": {
-    "prefix": "uuidv4",
-    "body": [
-      "use uuid",
-      "let ${1:id} = uuid.v4()",
-      "print(${1:id})"
-    ],
-    "description": "توليد UUID"
-  },
-
-  "UUID Validate": {
-    "prefix": "uuidval",
-    "body": [
-      "use uuid",
-      "if uuid.validate(\"${1:uuid-string}\")",
-      "\tprint(\"UUID صحيح\")",
-      "else",
-      "\tprint(\"UUID غير صحيح\")",
-      "end"
-    ],
-    "description": "التحقق من صحة UUID"
-  },
-
-  "Crypto AES Encrypt": {
-    "prefix": "aesenc",
-    "body": [
-      "use crypto",
-      "let ${1:encrypted} = crypto.aes_encrypt(\"${2:data}\", \"${3:key}\", \"${4:iv}\")"
-    ],
-    "description": "تشفير AES-256"
-  },
-
-  "Crypto AES Decrypt": {
-    "prefix": "aesdec",
-    "body": [
-      "use crypto",
-      "let ${1:decrypted} = crypto.aes_decrypt(\"${2:data}\", \"${3:key}\", \"${4:iv}\")"
-    ],
-    "description": "فك تشفير AES-256"
+    "description": "Print a value"
   }
 }

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="dzGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Document base -->
+  <path d="M7,3 L20,3 L25,8 L25,29 C25,30.1 24.1,31 23,31 L7,31 C5.9,31 5,30.1 5,29 L5,5 C5,3.9 5.9,3 7,3 Z" fill="url(#dzGrad)" filter="url(#shadow)" />
+  
+  <!-- Folded corner -->
+  <path d="M20,3 L20,8 L25,8 Z" fill="#ffffff" fill-opacity="0.4" />
+
+  <!-- D letter -->
+  <path d="M10,12 L13.5,12 C15.5,12 17,13.5 17,16 C17,18.5 15.5,20 13.5,20 L10,20 Z M12,14 L12,18 L13.5,18 C14.5,18 15,17.5 15,16 C15,14.5 14.5,14 13.5,14 Z" fill="#ffffff" />
+  
+  <!-- Z letter -->
+  <path d="M18,12 L23,12 L23,14 L19.5,18 L23,18 L23,20 L18,20 L18,18 L21.5,14 L18,14 Z" fill="#ffffff" />
+</svg>

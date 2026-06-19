@@ -1,0 +1,4 @@
+*.vsix
+scratch/
+node_modules/
+.vscode-test/

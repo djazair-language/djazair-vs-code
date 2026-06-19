@@ -2,19 +2,30 @@
   "name": "djazair",
   "displayName": "Djazair Language",
   "description": "Syntax highlighting, formatting, and support for the Djazair programming language.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publisher": "djazair-language",
   "engines": {
     "vscode": "^1.90.0"
   },
   "main": "./extension.js",
-  "categories": ["Programming Languages"],
+  "activationEvents": [
+    "onLanguage:djazair"
+  ],
+  "categories": [
+    "Programming Languages",
+    "Formatters",
+    "Linters"
+  ],
   "keywords": [
     "djazair",
+    "algeria",
     "programming language",
     "syntax highlighting",
+    "formatter",
+    "linter",
     "snippets",
-    "dz"
+    "dz",
+    "arabic"
   ],
   "license": "MIT",
   "icon": "icon.png",
@@ -34,8 +45,8 @@
         "extensions": [".dz"],
         "configuration": "./language-configuration.json",
         "icon": {
-          "light": "./images/dz-file-icon.png",
-          "dark": "./images/dz-file-icon.png"
+          "light": "./images/dz-file-icon.svg",
+          "dark": "./images/dz-file-icon.svg"
         }
       }
     ],
@@ -61,6 +72,29 @@
         "icon": "$(play)"
       }
     ],
+    "menus": {
+      "editor/title/run": [
+        {
+          "command": "djazair.runFile",
+          "when": "resourceLangId == djazair",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "djazair.runFile",
+          "when": "resourceLangId == djazair",
+          "group": "navigation@1"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "djazair.runFile",
+          "when": "resourceLangId == djazair",
+          "group": "navigation@1"
+        }
+      ]
+    },
     "configuration": {
       "title": "Djazair",
       "properties": {

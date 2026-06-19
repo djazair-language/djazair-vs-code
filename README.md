@@ -22,10 +22,10 @@ This extension provides comprehensive support for **Djazair (`.dz`)** source fil
 
 ### 1. Advanced Syntax Highlighting
 Full TextMate grammar tokenization maps precisely to the Djazair grammar:
-* **Control Flows & Keywords**: `let`, `var`, `fn`, `class`, `is`, `if`, `elif`, `else`, `match`, `case`, `default`, `try`, `catch`, `finally`, `end`, etc.
+* **Control Flows & Keywords**: `let`, `fn`, `class`, `is`, `if`, `elif`, `else`, `match`, `case`, `default`, `try`, `catch`, `finally`, `end`, etc.
 * **Primitive Types**: Numbers, Booleans (`True`, `False`), and `Null`.
 * **String Interpolation**: Highlights dynamic expressions inside double-quoted strings (e.g. `"Hello ${name}"`).
-* **Comments**: Special colorization for single-line (`#`) and multi-line block comments (`#! ... !#`).
+* **Comments**: Special colorization for single-line (`#`) and multi-line block comments (`#* ... *#`).
 
 ### 2. Automatic Syntax Checking (Linter) 🆕
 * Run compile-time validation on save to catch syntax errors instantly.
@@ -42,7 +42,7 @@ Includes rich code snippets for rapid development:
 * `class`: Class outline with an initialization constructor (`init`).
 * `try`: Full Exception handling try-catch block.
 * `print`: Print statement wrapper.
-* `let` / `var`: Variable declaration templates.
+* `let`: Variable declaration template.
 
 ---
 
@@ -103,7 +103,7 @@ Navigate to the root directory of this extension and run:
 ```bash
 vsce package
 ```
-This command compiles and generates a `djazair-1.0.3.vsix` file (matching the version in `package.json`) in the root directory, which can be shared and installed directly.
+This command compiles and generates a `djazair-1.1.1.vsix` file (matching the version in `package.json`) in the root directory, which can be shared and installed directly.
 
 ---
 

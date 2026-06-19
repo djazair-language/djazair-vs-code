@@ -2,7 +2,7 @@
   "Function": {
     "prefix": "fn",
     "body": [
-      "fn ${1:name}(${2:args}):",
+      "fn ${1:name}(${2:args})",
       "\t${3:// body}",
       "end"
     ],
@@ -20,12 +20,12 @@
   "Class": {
     "prefix": "class",
     "body": [
-      "class ${1:ClassName}:",
-      "\tinit(${2:args}):",
+      "class ${1:ClassName}",
+      "\tinit(${2:args})",
       "\t\tself.${3:property} = ${4:value}",
       "\tend",
       "",
-      "\t${5:method}(${6:args}):",
+      "\t${5:method}(${6:args})",
       "\t\t${7:// method body}",
       "\tend",
       "end"
@@ -36,7 +36,7 @@
   "If Statement": {
     "prefix": "if",
     "body": [
-      "if ${1:condition}:",
+      "if ${1:condition}",
       "\t${2:// code}",
       "end"
     ],
@@ -46,9 +46,9 @@
   "If Else": {
     "prefix": "ife",
     "body": [
-      "if ${1:condition}:",
+      "if ${1:condition}",
       "\t${2:// code}",
-      "else:",
+      "else",
       "\t${3:// code}",
       "end"
     ],
@@ -58,11 +58,11 @@
   "If Elif Else": {
     "prefix": "ifel",
     "body": [
-      "if ${1:condition}:",
+      "if ${1:condition}",
       "\t${2:// code}",
-      "elif ${3:condition}:",
+      "elif ${3:condition}",
       "\t${4:// code}",
-      "else:",
+      "else",
       "\t${5:// code}",
       "end"
     ],
@@ -72,12 +72,12 @@
   "Match Case": {
     "prefix": "match",
     "body": [
-      "match ${1:value}:",
-      "\tcase ${2:pattern1}:",
+      "match ${1:value}",
+      "\tcase ${2:pattern1}",
       "\t\t${3:// code}",
-      "\tcase ${4:pattern2}:",
+      "\tcase ${4:pattern2}",
       "\t\t${5:// code}",
-      "\tdefault:",
+      "\tdefault",
       "\t\t${6:// default code}",
       "end"
     ],
@@ -87,7 +87,7 @@
   "For Loop": {
     "prefix": "for",
     "body": [
-      "for ${1:item} in ${2:iterable}:",
+      "for ${1:item} in ${2:iterable}",
       "\t${3:// body}",
       "end"
     ],
@@ -97,7 +97,7 @@
   "While Loop": {
     "prefix": "while",
     "body": [
-      "while ${1:condition}:",
+      "while ${1:condition}",
       "\t${2:// body}",
       "end"
     ],
@@ -107,7 +107,7 @@
   "Do-While Loop": {
     "prefix": "dowhile",
     "body": [
-      "do:",
+      "do",
       "\t${1:// body}",
       "while ${2:expression}"
     ],
@@ -117,11 +117,11 @@
   "Try Catch Finally": {
     "prefix": "try",
     "body": [
-      "try:",
+      "try",
       "\t${1:// code}",
-      "catch (${2:err}):",
+      "catch ${2:err}",
       "\t${3:// handle error}",
-      "finally:",
+      "finally",
       "\t${4:// cleanup}",
       "end"
     ],
@@ -206,7 +206,7 @@
   "Main Function": {
     "prefix": "main",
     "body": [
-      "fn main():",
+      "fn main()",
       "\t${1:// main code}",
       "end"
     ],
@@ -253,8 +253,8 @@
   "Date Now": {
     "prefix": "datenow",
     "body": [
-      "use date",
-      "let ${1:now} = date.now()",
+      "use datetime",
+      "let ${1:now} = datetime.now()",
       "print(${1:now}.toString())"
     ],
     "description": "التاريخ والوقت الحالي"
@@ -263,8 +263,8 @@
   "Date Format": {
     "prefix": "datefmt",
     "body": [
-      "use date",
-      "let ${1:d} = date.now()",
+      "use datetime",
+      "let ${1:d} = datetime.now()",
       "print(${1:d}.format(\"${2:%Y-%m-%d %H:%M:%S}\"))"
     ],
     "description": "تنسيق التاريخ"
@@ -273,8 +273,8 @@
   "Date From Parts": {
     "prefix": "dateparts",
     "body": [
-      "use date",
-      "let ${1:d} = date.fromParts(${2:2024}, ${3:1}, ${4:15})",
+      "use datetime",
+      "let ${1:d} = datetime.fromParts(${2:2024}, ${3:1}, ${4:15})",
       "print(${1:d}.format(\"${5:%Y-%m-%d}\"))"
     ],
     "description": "إنشاء تاريخ من القيم"
@@ -283,8 +283,8 @@
   "IO Read Text": {
     "prefix": "ioread",
     "body": [
-      "use io",
-      "let ${1:content} = io.readText(\"${2:file.txt}\")",
+      "use file",
+      "let ${1:content} = file.read(\"${2:file.txt}\")",
       "print(${1:content})"
     ],
     "description": "قراءة ملف نصي كامل"
@@ -293,8 +293,8 @@
   "IO Write Text": {
     "prefix": "iowrite",
     "body": [
-      "use io",
-      "io.writeText(\"${1:file.txt}\", ${2:content})"
+      "use file",
+      "file.write(\"${1:file.txt}\", ${2:content})"
     ],
     "description": "كتابة ملف نصي"
   },
@@ -302,33 +302,33 @@
   "IO Exists": {
     "prefix": "ioexists",
     "body": [
-      "use io",
-      "if io.exists(\"${1:path}\"):",
+      "use file",
+      "if file.exists(\"${1:path}\")",
       "\tprint(\"موجود\")",
       "end"
     ],
     "description": "التحقق من وجود ملف"
   },
 
-  "IO List Dir": {
-    "prefix": "iols",
+  "Dir List": {
+    "prefix": "dirlist",
     "body": [
-      "use io",
-      "let ${1:entries} = io.listdir(\"${2:.}\")",
-      "for ${3:entry} in ${1:entries}:",
+      "use dir",
+      "let ${1:entries} = dir.list(\"${2:.}\")",
+      "for ${3:entry} in ${1:entries}",
       "\tprint(${3:entry})",
       "end"
     ],
     "description": "سرد محتويات مجلد"
   },
 
-  "IO Walk": {
-    "prefix": "iowalk",
+  "Dir Traverse": {
+    "prefix": "dirtraverse",
     "body": [
-      "use io",
-      "let ${1:tree} = io.walk(\"${2:.}\")",
-      "for ${3:node} in ${1:tree}:",
-      "\tprint(${3:node}.dir)",
+      "use dir",
+      "let ${1:paths} = dir.traverse(\"${2:.}\")",
+      "for ${3:path} in ${1:paths}",
+      "\tprint(${3:path})",
       "end"
     ],
     "description": "اجتياز مجلد recursively"
@@ -337,8 +337,8 @@
   "IO File Open": {
     "prefix": "iofile",
     "body": [
-      "use io",
-      "let ${1:f} = io.open(\"${2:file.txt}\", \"${3:r}\")",
+      "use file",
+      "let ${1:f} = file.open(\"${2:file.txt}\", \"${3:r}\")",
       "let ${4:data} = ${1:f}.read()",
       "${1:f}.close()"
     ],
@@ -348,8 +348,8 @@
   "IO Format Size": {
     "prefix": "iosize",
     "body": [
-      "use io",
-      "print(io.formatSize(${1:1024}))"
+      "use file",
+      "print(file.size(${1:1024}))"
     ],
     "description": "تنسيق حجم الملف"
   },
@@ -440,7 +440,7 @@
     "body": [
       "use net",
       "let ${1:server} = net.createServer(${2:8080})",
-      "${1:server}.start(fn(${3:client}):",
+      "${1:server}.start(fn(${3:client})",
       "\t${3:client}.send(\"${4:Hello}\")",
       "\t${3:client}.close()",
       "end)"
@@ -520,7 +520,7 @@
     "prefix": "args",
     "body": [
       "use os",
-      "for ${1:i} in os.args():",
+      "for ${1:i} in os.args()",
       "\tprint(${1:i})",
       "end"
     ],
@@ -569,7 +569,7 @@
     "body": [
       "use regex",
       "let ${1:re} = regex.compile(\"${2:pattern}\")",
-      "if ${1:re}.test(\"${3:text}\"):",
+      "if ${1:re}.test(\"${3:text}\")",
       "\tprint(\"يوجد تطابق\")",
       "end"
     ],
@@ -581,7 +581,7 @@
     "body": [
       "use regex",
       "let ${1:m} = regex.find(\"${2:pattern}\", \"${3:text}\")",
-      "if ${1:m} != Null:",
+      "if ${1:m} != Null",
       "\tprint(${1:m}.group(${4:0}))",
       "end"
     ],
@@ -612,7 +612,7 @@
       "use regex",
       "let ${1:re} = regex.compileWithFlags(\"${2:pattern}\", \"${3:g}\")",
       "let ${4:m} = ${1:re}.exec(\"${5:text}\")",
-      "if ${4:m} != Null:",
+      "if ${4:m} != Null",
       "\tprint(${4:m}.group(${6:0}))",
       "end"
     ],
@@ -670,7 +670,7 @@
   "Time Now": {
     "prefix": "timenow",
     "body": [
-      "use time",
+      "use datetime",
       "print(time.now())"
     ],
     "description": "الطابع الزمني الحالي"
@@ -679,7 +679,7 @@
   "Time Sleep": {
     "prefix": "sleep",
     "body": [
-      "use time",
+      "use datetime",
       "time.sleep(${1:1})",
       "print(\"تم الانتظار\")"
     ],
@@ -689,8 +689,8 @@
   "Time Measure": {
     "prefix": "timebench",
     "body": [
-      "use time",
-      "let ${1:elapsed} = time.measureTime(fn():",
+      "use datetime",
+      "let ${1:elapsed} = datedatetime.measureTime(fn()",
       "\t${2:// code to benchmark}",
       "end)",
       "print(\"استغرق: \" + str(${1:elapsed}) + \" ثانية\")"
@@ -712,9 +712,9 @@
     "prefix": "uuidval",
     "body": [
       "use uuid",
-      "if uuid.validate(\"${1:uuid-string}\"):",
+      "if uuid.validate(\"${1:uuid-string}\")",
       "\tprint(\"UUID صحيح\")",
-      "else:",
+      "else",
       "\tprint(\"UUID غير صحيح\")",
       "end"
     ],

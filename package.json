@@ -3,13 +3,29 @@
   "displayName": "Djazair Language",
   "description": "Syntax highlighting, formatting, and support for the Djazair programming language.",
   "version": "1.0.3",
-  "publisher": "djazair-lang",
+  "publisher": "djazair-language",
   "engines": {
     "vscode": "^1.90.0"
   },
+  "main": "./extension.js",
   "categories": ["Programming Languages"],
-
-  
+  "keywords": [
+    "djazair",
+    "programming language",
+    "syntax highlighting",
+    "snippets",
+    "dz"
+  ],
+  "license": "MIT",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/djazair-language/djazair-vs-code.git"
+  },
+  "bugs": {
+    "url": "https://github.com/djazair-language/djazair-vs-code/issues"
+  },
+  "homepage": "https://github.com/djazair-language/djazair-vs-code#readme",
   "contributes": {
     "languages": [
       {
@@ -33,6 +49,16 @@
         "language": "djazair",
         "path": "./snippets/djazair.json"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Djazair",
+      "properties": {
+        "djazair.compilerPath": {
+          "type": "string",
+          "default": "djazair",
+          "description": "Path to the Djazair compiler/interpreter executable."
+        }
+      }
+    }
   }
 }

@@ -27,13 +27,16 @@ Full TextMate grammar tokenization maps precisely to the Djazair grammar:
 * **String Interpolation**: Highlights dynamic expressions inside double-quoted strings (e.g. `"Hello ${name}"`).
 * **Comments**: Special colorization for single-line (`#`) and multi-line block comments (`#! ... !#`).
 
-### 2. Language Configuration & Editing Aids
-* **Auto-Closing Pairs**: Automatically closes `(`, `[`, `{`, `"`, and `'`.
-* **Surrounding Pairs**: Allows wrapping selected text when typing parenthetical or quote characters.
-* **Indentation Rules**: Automatically handles indent levels when opening functions, classes, or block structures.
-* **Toggle Comments**: Out-of-the-box support for default commenting shortcuts (`Ctrl + /` on Windows/Linux, `Cmd + /` on macOS).
+### 2. Automatic Syntax Checking (Linter) 🆕
+* Run compile-time validation on save to catch syntax errors instantly.
+* Displays error diagnostics directly in your editor as red wavy underlines.
+* Provides detailed descriptions and precise column highlights for errors in the **Problems** tab.
 
-### 3. Productivity Snippets
+### 3. Code Auto-Formatting (Like JS/Prettier) 🆕
+* Instantly format your entire document using `Shift + Alt + F` or on-save (`editor.formatOnSave`).
+* Automatically structures your blocks (functions, classes, loops, conditionals) with clean and consistent indentation.
+
+### 4. Productivity Snippets
 Includes rich code snippets for rapid development:
 * `fn`: Standard function structure.
 * `class`: Class outline with an initialization constructor (`init`).
@@ -75,6 +78,13 @@ If you have a compiled `.vsix` file:
 2. Open the Extensions View (`Ctrl+Shift+X` or `Cmd+Shift+X`).
 3. Click the **`...`** (More Actions) menu in the top-right corner of the Extensions panel.
 4. Select **Install from VSIX...** and select the `.vsix` file.
+
+---
+
+## ⚙️ Configuration Settings
+
+This extension provides the following settings:
+* `djazair.compilerPath`: Specify the absolute path to your `djazair` or `djazair.exe` compiler binary. (Defaults to `"djazair"`. The extension will also attempt to auto-discover the compiler binary inside parent workspaces if built from source).
 
 ---
 

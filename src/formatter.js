@@ -144,7 +144,7 @@ function formatDocument(document, options) {
         let isClassScope    = blockStack.length > 0 && blockStack[blockStack.length - 1].isClass;
 
         if (first !== '') {
-            if (first === 'fn' || (first === 'async' && second === 'fn')) {
+            if (first === 'fn' || (first === 'async' && second === 'fn') || stripped.endsWith('fn()') || stripped.endsWith('fn')) {
                 isBlockOpener = true;
                 blockType = 'fn';
             }
@@ -184,7 +184,7 @@ function formatDocument(document, options) {
                 }
             }
 
-            else if (first === 'end') {
+            else if (first.startsWith('end')) {
                 const top = blockStack[blockStack.length - 1];
                 if (top && top.type === 'case') {
                     blockStack.pop();

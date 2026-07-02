@@ -131,7 +131,7 @@
         },
         {
           "name": "keyword.control.loop.djazair",
-          "match": "\\b(for|in|while|do)\\b"
+          "match": "\\b(for|in|while|do|to)\\b"
         },
         {
           "name": "keyword.control.exception.djazair",
@@ -139,7 +139,7 @@
         },
         {
           "name": "keyword.control.import.djazair",
-          "match": "\\b(import|use|as)\\b"
+          "match": "\\b(import|use|as|from)\\b"
         },
         {
           "name": "storage.type.djazair",
@@ -155,7 +155,7 @@
         },
         {
           "name": "keyword.other.djazair",
-          "match": "\\b(super|self)\\b"
+          "match": "\\b(super|self|new)\\b"
         },
         {
           "name": "keyword.operator.word.djazair",

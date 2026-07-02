@@ -126,7 +126,8 @@ const DJAZAIR_DOCS = {
     'new': { sig: 'Keyword', desc: 'Creates a new instance of a class.' },
     'throw': { sig: 'Keyword', desc: 'Throws an exception or error.' },
     'use': { sig: 'Keyword', desc: 'Uses a namespace or trait.' },
-    'super': { sig: 'Keyword', desc: 'Refers to the parent class.' }
+    'super': { sig: 'Keyword', desc: 'Refers to the parent class.' },
+    'to': { sig: 'Keyword', desc: 'Used in loops, e.g., for i from 1 to 10.' }
 };
 
 // Hybrid modules (C + Djazair): registered in std_registry.c

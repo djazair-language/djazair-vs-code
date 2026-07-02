@@ -8,9 +8,6 @@
     "vscode": "^1.90.0"
   },
   "main": "./extension.js",
-  "activationEvents": [
-    "onLanguage:djazair"
-  ],
   "categories": [
     "Programming Languages",
     "Formatters",
@@ -41,8 +38,13 @@
     "languages": [
       {
         "id": "djazair",
-        "aliases": ["Djazair", "djazair"],
-        "extensions": [".dz"],
+        "aliases": [
+          "Djazair",
+          "djazair"
+        ],
+        "extensions": [
+          ".dz"
+        ],
         "configuration": "./language-configuration.json",
         "icon": {
           "light": "./images/dz-file-icon.svg",
@@ -50,7 +52,6 @@
         }
       }
     ],
-
     "grammars": [
       {
         "language": "djazair",
@@ -58,7 +59,6 @@
         "path": "./syntaxes/djazair.tmLanguage.json"
       }
     ],
-
     "snippets": [
       {
         "language": "djazair",

@@ -22,19 +22,5 @@
         ["(", ")"],
         ["'", "'"],
         ["\"", "\""]
-    ],
-    "indentationRules": {
-        "increaseIndentPattern": "^\\s*(if|elif|else|for|while|do|fn|class|match|case|default|try|catch|finally).*:$",
-        "decreaseIndentPattern": "^\\s*(end|elif|else|catch|finally|while)\\b.*$"
-    },
-    "onEnterRules": [
-        {
-            "beforeText": "^\\s*(if|elif|else|for|while|do|fn|class|match|case|default|try|catch|finally).*:$",
-            "action": { "indent": "indent" }
-        },
-        {
-            "beforeText": "^\\s*(end|elif|else|catch|finally|while)\\b.*$",
-            "action": { "indent": "outdent" }
-        }
     ]
 }

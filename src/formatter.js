@@ -144,7 +144,7 @@ function formatDocument(document, options) {
         let isClassScope    = blockStack.length > 0 && blockStack[blockStack.length - 1].isClass;
 
         if (first !== '') {
-            if (first === 'fn' || (first === 'async' && second === 'fn') || stripped.endsWith('fn()') || stripped.endsWith('fn')) {
+            if (first === 'fn' || (first === 'async' && second === 'fn')) {
                 isBlockOpener = true;
                 blockType = 'fn';
             }
@@ -209,6 +209,11 @@ function formatDocument(document, options) {
             else if (isClassScope && /^[a-zA-Z_][a-zA-Z0-9_]*\s*\(/.test(stripped)) {
                 isBlockOpener = true;
                 blockType = 'method';
+            }
+
+            else if (/\bfn\b\s*\(/.test(stripped) && !/\bend\b/.test(stripped) && !first.startsWith('end')) {
+                isBlockOpener = true;
+                blockType = 'fn';
             }
         }
 

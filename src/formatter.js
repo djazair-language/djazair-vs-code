@@ -92,7 +92,7 @@ function formatLineSpacing(lineText) {
         i++;
     }
 
-    return result;
+    return result.trimEnd();
 }
 
 function formatDocument(document, options) {
@@ -184,7 +184,7 @@ function formatDocument(document, options) {
                 }
             }
 
-            else if (first.startsWith('end')) {
+            else if (first === 'end') {
                 const top = blockStack[blockStack.length - 1];
                 if (top && top.type === 'case') {
                     blockStack.pop();
@@ -209,11 +209,6 @@ function formatDocument(document, options) {
             else if (isClassScope && /^[a-zA-Z_][a-zA-Z0-9_]*\s*\(/.test(stripped)) {
                 isBlockOpener = true;
                 blockType = 'method';
-            }
-
-            else if (/\bfn\b\s*\(/.test(stripped) && !/\bend\b/.test(stripped) && !first.startsWith('end')) {
-                isBlockOpener = true;
-                blockType = 'fn';
             }
         }
 

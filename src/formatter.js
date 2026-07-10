@@ -184,7 +184,7 @@ function formatDocument(document, options) {
                 }
             }
 
-            else if (first === 'end') {
+            else if (/^end\b/.test(first)) {
                 const top = blockStack[blockStack.length - 1];
                 if (top && top.type === 'case') {
                     blockStack.pop();
@@ -209,6 +209,11 @@ function formatDocument(document, options) {
             else if (isClassScope && /^[a-zA-Z_][a-zA-Z0-9_]*\s*\(/.test(stripped)) {
                 isBlockOpener = true;
                 blockType = 'method';
+            }
+
+            else if (/\bfn\b\s*\(/.test(stripped) && !stripped.includes('=>') && !/\bend\b/.test(stripped) && !/^end\b/.test(first)) {
+                isBlockOpener = true;
+                blockType = 'fn';
             }
         }
 

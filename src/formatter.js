@@ -217,6 +217,10 @@ function formatDocument(document, options) {
             }
         }
 
+        if (isBlockOpener && /\bend\b/.test(stripped)) {
+            isBlockOpener = false;
+        }
+
         if (isBlockCloser) {
             blockStack.pop();
         }

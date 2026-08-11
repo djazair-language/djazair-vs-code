@@ -1,20 +1,30 @@
-function formatLineSpacing(lineText) {
+function formatLineSpacing(lineText, initialState = null, returnObject = false) {
     let result = '';
     let i = 0;
+    let quote = initialState;
 
     while (i < lineText.length) {
+        if (quote) {
+            while (i < lineText.length && lineText[i] !== quote) {
+                if (lineText[i] === '\\') {
+                    result += lineText[i]; i++;
+                    if (i < lineText.length) { result += lineText[i]; i++; }
+                } else {
+                    result += lineText[i]; i++;
+                }
+            }
+            if (i < lineText.length && lineText[i] === quote) {
+                result += lineText[i]; i++;
+                quote = null;
+            }
+            continue;
+        }
+
         const char = lineText[i];
 
         if (char === '"' || char === "'" || char === '`') {
-            const quote = char;
-            const start = i;
-            i++;
-            while (i < lineText.length && lineText[i] !== quote) {
-                if (lineText[i] === '\\') i++;
-                i++;
-            }
-            if (i < lineText.length) i++;
-            result += lineText.substring(start, i);
+            quote = char;
+            result += char; i++;
             continue;
         }
 
@@ -92,7 +102,8 @@ function formatLineSpacing(lineText) {
         i++;
     }
 
-    return result.trimEnd();
+    const res = quote ? result : result.trimEnd();
+    return returnObject ? { text: res, state: quote } : res;
 }
 
 function formatDocument(document, options) {
@@ -105,22 +116,52 @@ function formatDocument(document, options) {
 
     let braceDepth   = 0;
     let bracketDepth = 0;
+    let inStringQuote = null;
 
     for (let i = 0; i < document.lineCount; i++) {
         const rawText = document.lineAt(i).text;
-        const trimmed = rawText.trim();
+        const startInString = inStringQuote;
 
-        if (trimmed === '') {
+        let stripped = '';
+        let j = 0;
+        let tempQuote = inStringQuote;
+        
+        while (j < rawText.length) {
+            const char = rawText[j];
+            if (tempQuote) {
+                if (char === '\\') {
+                    j += 2;
+                } else {
+                    if (char === tempQuote) tempQuote = null;
+                    j++;
+                }
+            } else {
+                if (char === '"' || char === "'" || char === '`') {
+                    tempQuote = char;
+                    stripped += '""';
+                    j++;
+                } else if (char === '#') {
+                    break;
+                } else {
+                    stripped += char;
+                    j++;
+                }
+            }
+        }
+
+        let trimmed = rawText.trim();
+        if (startInString) {
+            trimmed = rawText;
+            if (!tempQuote) trimmed = trimmed.trimEnd();
+        } else if (tempQuote) {
+            trimmed = trimmed.trimStart();
+        }
+
+        if (trimmed === '' && !startInString) {
             formattedLines.push('');
             continue;
         }
 
-        let stripped = trimmed
-            .replace(/"(\\.|[^"\\])*"/g, '""')
-            .replace(/'(\\.|[^'\\])*'/g, "''")
-            .replace(/`(\\.|[^`\\])*`/g, '``');
-        const ci = stripped.indexOf('#');
-        if (ci !== -1) stripped = stripped.substring(0, ci);
         stripped = stripped.trim();
 
         const words    = stripped.split(/\s+/);
@@ -230,9 +271,11 @@ function formatDocument(document, options) {
             level = Math.max(0, level - 1);
         }
 
-        const prefix     = indent.repeat(Math.max(0, level));
-        const spacedLine = formatLineSpacing(trimmed);
+        const prefix     = startInString ? '' : indent.repeat(Math.max(0, level));
+        const { text: spacedLine, state: nextQuote } = formatLineSpacing(trimmed, inStringQuote, true);
         formattedLines.push(prefix + spacedLine);
+        
+        inStringQuote = nextQuote;
 
         if (isBlockOpener) {
             blockStack.push({ type: blockType, isClass: blockType === 'class' });
